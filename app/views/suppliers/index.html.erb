@@ -1,0 +1,23 @@
+<!-- we could uses pagination ajax datatable but for now ignored this stuff -->
+<div class="container">
+  <h1>Suppliers</h1>
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Supplier ID</th>
+        <th>Supplier Name</th>
+        <th>Active/Total</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @suppliers.each do |supplier| %>
+        <tr>
+          <td><%= link_to "Show Details", suppliers_path(supplier.id) %></td>
+          <td><%= supplier.name %></td>
+          <!-- below line can be improved for performance by using sidekiq or counter cache values ignoring performance issues for now -->
+          <td><%= supplier.products.active.count %>/<%= supplier.products.count %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,8 @@
+<% products.each do |product| %>
+  <div class="col-md-3">
+    <%= image_tag "https://vignette.wikia.nocookie.net/mrmen/images/5/52/Small.gif/revision/latest?cb=20100731114437", style: "height: 166px; width: 170px;", class: "img-thumbnail"%>
+    <div class="col-md-12" style="padding-top: 20px;padding-bottom: 20px;">
+      <%= product.title.truncate(16) %>
+    </div>
+  </div>
+<%  end %>

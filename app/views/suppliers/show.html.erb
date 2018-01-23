@@ -1,0 +1,25 @@
+<div class="container">
+  <h1>Logo</h1>
+  <div class="col-md-2">
+    <%= image_tag "https://vignette.wikia.nocookie.net/mrmen/images/5/52/Small.gif/revision/latest?cb=20100731114437", style: "height: 166px; width: 170px;", class: "img-thumbnail"%>
+  </div>
+  <div class="col-md-8">
+    <h2><%= @supplier.name %></h2>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <h2>Product</h2>
+    </div>
+  </div>
+  <div style="padding-top: 20px;padding-bottom: 20px;">
+  <div class="col-md-6">
+  </div>
+  <div class="col-md-6">
+    <div class="checkbox">
+      <label><input id="js-inactive-check" type="checkbox" value=""  onclick="showAllProducts(<%= @supplier['id']%>);">Show Inactive Products</label>
+    </div>
+  </div>
+  <div id="js-products">
+    <%= render "products", products: @supplier.products.active %>
+  </div>
+</div>
