@@ -8,8 +8,8 @@ class SuppliersController < ApplicationController
     @supplier = Supplier.find_by(id: params[:id])
     if (params[:inactive_check].present? && params[:inactive_check] == "false") || params[:inactive_check].blank?
       @products = @supplier.products.active
-    elsif params[:inactive_check].present? && params[:inactive_check] == "true"
-      @products = @supplier.products.inactive
+    else
+      @products = supplier.products
     end
   end
 end
