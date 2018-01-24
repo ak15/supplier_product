@@ -8,4 +8,8 @@ class Product < ActiveRecord::Base
   def self.active
     where(status: Product.statuses[:active])
   end
+
+  def self.inactive
+    where(status: Product.statuses[:inactive])
+  end
 end
